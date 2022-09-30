@@ -5,7 +5,7 @@ import os
 #find files
 
 
-#files = []
+files = []
 
 for file in os.listdir():
     if file == "bigballs.py" or file=="thekey.key" or file=="smallballs.py":
@@ -17,8 +17,8 @@ with open("thekey.key", "rb") as key:
     secretkey=key.read()
     
 for file in files:
-    #with open(file, "rb") as thefile:
-        #contents = thefile.read()
-    #contents_decrypted = Fernet(secretkey).decrypt(contents)
-    #with open(file, "wb") as thefile:
-        #thefile.write(contents_decrypted)
+    with open(file, "rb") as thefile:
+        contents = thefile.read()
+    contents_decrypted = Fernet(secretkey).decrypt(contents)
+    with open(file, "wb") as thefile:
+        thefile.write(contents_decrypted)
